@@ -1,0 +1,33 @@
+{
+  "name": "memsearch-dev",
+  "description": "memsearch WorkBuddy 插件市场 — memsearch-workbuddy：hook 对接层（prompts 已内置，基于 memsearch Python 包）",
+  "owner": {
+    "name": "Falke",
+    "email": ""
+  },
+  "metadata": {
+    "version": "0.2.0"
+  },
+  "plugins": [
+    {
+      "name": "memsearch-workbuddy",
+      "description": "Automatic semantic memory for WorkBuddy — captures each finished turn, summarizes into daily Markdown journals, indexes into Milvus, injects top-2 relevant memories on prompt submit, and runs due maintenance (PROJECT.md/USER.md, skill distillation).",
+      "source": "./workbuddy",
+      "version": "0.1.0",
+      "category": "productivity",
+      "author": {
+        "name": "Falke"
+      },
+      "homepage": "https://github.com/KagaJiankui/memsearch-workbuddy",
+      "license": "MIT",
+      "keywords": [
+        "memory",
+        "semantic-search",
+        "milvus",
+        "markdown",
+        "workbuddy"
+      ],
+      "repository": "https://github.com/KagaJiankui/memsearch-workbuddy"
+    }
+  ]
+}
