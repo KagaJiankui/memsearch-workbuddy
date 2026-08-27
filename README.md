@@ -1,5 +1,7 @@
 # memsearch — WorkBuddy Plugin
 
+[English] | [简体中文](README.zh-CN.md)
+
 [![CodeBuddy](https://img.shields.io/badge/CodeBuddy-plugin-00A1E0)](https://www.codebuddy.ai)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/memsearch/)
 [![memsearch](https://img.shields.io/badge/powered%20by-memsearch-FF6900)](https://github.com/zilliztech/memsearch)
@@ -35,12 +37,10 @@ memsearch config set plugins.openclaw.summarize.enabled true
 WorkBuddy has no headless CLI, so `provider = native` will not work here — it must
 be a real provider entry.
 
-**3. Put this plugin into your WorkBuddy marketplace directory** and restart
-WorkBuddy (hook wiring is only read at startup):
-
-```bash
-cp -r . "<marketplace-dir>/memsearch-workbuddy"
-```
+**3. Install the plugin** inside WorkBuddy: open **Experts ∙ Skills ∙ Connectors**,
+go to **Skills** > **Plugins**, click **`+`** and enter
+`KagaJiankui/memsearch-workbuddy`. Restart WorkBuddy once so the hook wiring is
+picked up.
 
 That's it. Talk to WorkBuddy for a turn or two.
 
