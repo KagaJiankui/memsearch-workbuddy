@@ -1,6 +1,6 @@
 # memsearch — WorkBuddy Plugin
 
-[English] | [简体中文](README.zh-CN.md)
+English | [简体中文](README.zh-CN.md)
 
 [![CodeBuddy](https://img.shields.io/badge/CodeBuddy-plugin-00A1E0)](https://www.codebuddy.ai)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/memsearch/)

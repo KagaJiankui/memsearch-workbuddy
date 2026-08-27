@@ -1,10 +1,10 @@
 # Whitelist repo: marketplace manifest + plugin dir + README
-/*
-!/.gitignore
-!/README.md
-!/README.zh-CN.md
-!/.codebuddy-plugin/
-!/workbuddy/
+*
+!.gitignore
+!README.md
+!README.zh-CN.md
+!.codebuddy-plugin/
+!workbuddy/
 
 # runtime / build artifacts inside workbuddy/
 **/__pycache__/
