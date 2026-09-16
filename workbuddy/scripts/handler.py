@@ -79,15 +79,37 @@ def _respond(obj):
             pass
 
 
+def _git_toplevel(path):
+    """沿 path 向上找 git 仓库根；不在仓库内或 git 不可用时返回 None。"""
+    try:
+        r = subprocess.run(
+            ["git", "-C", path, "rev-parse", "--show-toplevel"],
+            capture_output=True, text=True, timeout=5,
+            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
+        )
+        if r.returncode == 0:
+            top = (r.stdout or "").strip()
+            if top and os.path.isdir(top):
+                return os.path.abspath(top)
+    except Exception:
+        pass
+    return None
+
+
 def _project_dir(payload):
-    """工程根解析：stdin cwd 优先，其次宿主 env，最后进程 cwd（C3 不依赖 PLUGIN_ROOT）。"""
+    """工程根解析：stdin cwd 优先，其次宿主 env，最后进程 cwd（C3 不依赖 PLUGIN_ROOT）。
+
+    与上游 plugins/claude-code/hooks/common.sh:41-44 对齐：落在 git 仓库内时
+    上溯到仓库根，避免 WorkBuddy 的每-session 日期目录各自生成一个 collection。
+    """
     for cand in (
         payload.get("cwd"),
         os.environ.get("CODEBUDDY_PROJECT_DIR"),
         os.environ.get("CLAUDE_PROJECT_DIR"),
     ):
         if cand and os.path.isdir(cand):
-            return os.path.abspath(cand)
+            base = os.path.abspath(cand)
+            return _git_toplevel(base) or base
     return os.getcwd()
 
 
